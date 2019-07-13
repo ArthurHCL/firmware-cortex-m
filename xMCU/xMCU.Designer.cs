@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(xMCU));
             this.button_open = new System.Windows.Forms.Button();
             this.button_burn = new System.Windows.Forms.Button();
@@ -47,6 +48,9 @@
             this.labelJlink = new System.Windows.Forms.Label();
             this.textJlinkVer = new System.Windows.Forms.TextBox();
             this.but_clear = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUID)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +72,7 @@
             this.button_burn.Size = new System.Drawing.Size(75, 23);
             this.button_burn.TabIndex = 2;
             this.button_burn.Text = "烧录(&B)";
+            this.toolTip3.SetToolTip(this.button_burn, "如果MCU已经加密：建议先擦除，然后再烧录");
             this.button_burn.UseVisualStyleBackColor = false;
             this.button_burn.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -101,6 +106,7 @@
             this.button_erase.Size = new System.Drawing.Size(75, 23);
             this.button_erase.TabIndex = 5;
             this.button_erase.Text = "擦除(&E)";
+            this.toolTip1.SetToolTip(this.button_erase, "如果MCU已经加密：首次点击按钮导致FLASH自动清空；首次点击按钮可能显示失败，再次点击即可");
             this.button_erase.UseVisualStyleBackColor = true;
             this.button_erase.Click += new System.EventHandler(this.button_erase_Click);
             // 
@@ -113,6 +119,7 @@
             this.textBox_path.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox_path.Size = new System.Drawing.Size(364, 44);
             this.textBox_path.TabIndex = 6;
+            this.textBox_path.TabStop = false;
             // 
             // check_Fuse
             // 
@@ -135,6 +142,7 @@
             this.button_read.Size = new System.Drawing.Size(60, 23);
             this.button_read.TabIndex = 8;
             this.button_read.Text = "读取(&R)";
+            this.toolTip2.SetToolTip(this.button_read, "如果MCU已经加密：首次点击按钮导致FLASH自动清空；点击按钮可能显示失败");
             this.button_read.UseVisualStyleBackColor = true;
             this.button_read.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -149,6 +157,7 @@
             this.combo_device.Name = "combo_device";
             this.combo_device.Size = new System.Drawing.Size(131, 20);
             this.combo_device.TabIndex = 10;
+            this.combo_device.TabStop = false;
             this.combo_device.SelectedIndexChanged += new System.EventHandler(this.combo_device_SelectedIndexChanged);
             // 
             // textBox_serial
@@ -172,6 +181,8 @@
             // 
             // dataGridUID
             // 
+            this.dataGridUID.AllowUserToResizeColumns = false;
+            this.dataGridUID.AllowUserToResizeRows = false;
             this.dataGridUID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridUID.Location = new System.Drawing.Point(13, 80);
             this.dataGridUID.Name = "dataGridUID";
@@ -179,6 +190,7 @@
             this.dataGridUID.RowTemplate.Height = 23;
             this.dataGridUID.Size = new System.Drawing.Size(494, 255);
             this.dataGridUID.TabIndex = 13;
+            this.dataGridUID.TabStop = false;
             // 
             // labelDll
             // 
@@ -279,6 +291,9 @@
         private System.Windows.Forms.Label labelJlink;
         private System.Windows.Forms.TextBox textJlinkVer;
         private System.Windows.Forms.Button but_clear;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
     }
 }
 

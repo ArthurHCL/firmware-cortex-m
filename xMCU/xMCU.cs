@@ -34,15 +34,16 @@ namespace testGetID
         public xMCU()
         {
             InitializeComponent();
+
+            /* make the first item visible in ComboBox. */
             combo_device.SelectedIndex = 0;
-            combo_device.Enabled = true;
-            check_Fuse.Enabled = false;
-            textBox_serial.Enabled = true;
+
+            /* give a initial serial_number value according to TextBox. */
             serial_number = Convert.ToInt32(textBox_serial.Text);
-            if (false == File.Exists(execProg))
+
+            if (!is_JLink_exe_existed())
             {
-                MessageBox.Show("Jlink程序组件不存在!");
-                return ;   //Jlink.exe dose not exists.
+                return;
             }
 
             /* initialize needed information of JLink.exe process. */
@@ -376,7 +377,7 @@ namespace testGetID
                         if (0 == (0x00000002 & register_content_uint))
                         {
                             //MessageBox.Show("firmware is not encrypted by itself,\n it is needed if product is released!", "MCU firmware lock query result", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            MessageBox.Show("固件没有加密自己,\n 如果是发布产品则需要加密!", "MCU固件加密查询结果", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("固件没有对自身进行加密,\n 如果是正式产品发布,\n 则固件自身必须加密!", "MCU固件加密查询结果", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                             goto exit;
                         }
@@ -386,7 +387,7 @@ namespace testGetID
                         if (0xAA == (char)register_content_uint)
                         {
                             //MessageBox.Show("firmware is not encrypted by itself,\n it is needed if product is released!", "MCU firmware lock query result", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            MessageBox.Show("固件没有加密自己,\n 如果是发布产品则需要加密!", "MCU固件加密查询结果", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("固件没有对自身进行加密,\n 如果是正式产品发布,\n 则固件自身必须加密!", "MCU固件加密查询结果", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                             goto exit;
                         }
@@ -400,7 +401,7 @@ namespace testGetID
                 }
 
                 //MessageBox.Show("firmware is encrypted by itself,\n repower is needed!", "MCU firmware lock query result", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MessageBox.Show("固件加密了自己,\n 重新上电生效!", "MCU固件加密查询结果", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("固件已经对自身进行加密!\n 重新上电则开始运行!", "MCU固件加密查询结果", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             ret = true;
