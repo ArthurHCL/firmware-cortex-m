@@ -62,12 +62,13 @@
             // 
             // button_burn
             // 
+            this.button_burn.BackColor = System.Drawing.Color.Transparent;
             this.button_burn.Location = new System.Drawing.Point(248, 4);
             this.button_burn.Name = "button_burn";
             this.button_burn.Size = new System.Drawing.Size(75, 23);
             this.button_burn.TabIndex = 2;
             this.button_burn.Text = "烧录(&B)";
-            this.button_burn.UseVisualStyleBackColor = true;
+            this.button_burn.UseVisualStyleBackColor = false;
             this.button_burn.Click += new System.EventHandler(this.button2_Click);
             // 
             // MCU_MAC_ID
@@ -81,6 +82,7 @@
             // 
             // textBox_uid
             // 
+            this.textBox_uid.Enabled = false;
             this.textBox_uid.Location = new System.Drawing.Point(46, 341);
             this.textBox_uid.Name = "textBox_uid";
             this.textBox_uid.ReadOnly = true;
@@ -90,6 +92,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "firmware file(*.bin; *.hex)|*.bin;*.hex";
             // 
             // button_erase
             // 
@@ -104,19 +107,25 @@
             // textBox_path
             // 
             this.textBox_path.Location = new System.Drawing.Point(13, 30);
+            this.textBox_path.Multiline = true;
             this.textBox_path.Name = "textBox_path";
             this.textBox_path.ReadOnly = true;
-            this.textBox_path.Size = new System.Drawing.Size(310, 21);
+            this.textBox_path.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox_path.Size = new System.Drawing.Size(364, 44);
             this.textBox_path.TabIndex = 6;
             // 
             // check_Fuse
             // 
             this.check_Fuse.AutoSize = true;
-            this.check_Fuse.Location = new System.Drawing.Point(425, 8);
+            this.check_Fuse.Checked = true;
+            this.check_Fuse.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.check_Fuse.Enabled = false;
+            this.check_Fuse.Location = new System.Drawing.Point(418, 8);
             this.check_Fuse.Name = "check_Fuse";
-            this.check_Fuse.Size = new System.Drawing.Size(48, 16);
+            this.check_Fuse.Size = new System.Drawing.Size(96, 16);
             this.check_Fuse.TabIndex = 7;
-            this.check_Fuse.Text = "加密";
+            this.check_Fuse.TabStop = false;
+            this.check_Fuse.Text = "固件加密检查";
             this.check_Fuse.UseVisualStyleBackColor = true;
             // 
             // button_read
@@ -134,14 +143,8 @@
             this.combo_device.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combo_device.FormattingEnabled = true;
             this.combo_device.Items.AddRange(new object[] {
-            "STM32F051C8",
-            "STM32F030F4",
-            "STM32F031K4",
             "STM32F103C8",
-            "STM32F103RB",
-            "STM32F103VB",
-            "STM32F103VE",
-            "STM32L051K8"});
+            "STM32L151C8"});
             this.combo_device.Location = new System.Drawing.Point(13, 4);
             this.combo_device.Name = "combo_device";
             this.combo_device.Size = new System.Drawing.Size(131, 20);
@@ -150,7 +153,8 @@
             // 
             // textBox_serial
             // 
-            this.textBox_serial.Location = new System.Drawing.Point(337, 30);
+            this.textBox_serial.Enabled = false;
+            this.textBox_serial.Location = new System.Drawing.Point(432, 42);
             this.textBox_serial.Name = "textBox_serial";
             this.textBox_serial.Size = new System.Drawing.Size(75, 21);
             this.textBox_serial.TabIndex = 11;
@@ -160,7 +164,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(423, 35);
+            this.label1.Location = new System.Drawing.Point(397, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 12;
@@ -169,17 +173,17 @@
             // dataGridUID
             // 
             this.dataGridUID.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridUID.Location = new System.Drawing.Point(13, 57);
+            this.dataGridUID.Location = new System.Drawing.Point(13, 80);
             this.dataGridUID.Name = "dataGridUID";
             this.dataGridUID.ReadOnly = true;
             this.dataGridUID.RowTemplate.Height = 23;
-            this.dataGridUID.Size = new System.Drawing.Size(460, 278);
+            this.dataGridUID.Size = new System.Drawing.Size(494, 255);
             this.dataGridUID.TabIndex = 13;
             // 
             // labelDll
             // 
             this.labelDll.AutoSize = true;
-            this.labelDll.Location = new System.Drawing.Point(374, 346);
+            this.labelDll.Location = new System.Drawing.Point(405, 344);
             this.labelDll.Name = "labelDll";
             this.labelDll.Size = new System.Drawing.Size(29, 12);
             this.labelDll.TabIndex = 14;
@@ -187,7 +191,8 @@
             // 
             // textDllVer
             // 
-            this.textDllVer.Location = new System.Drawing.Point(406, 344);
+            this.textDllVer.Enabled = false;
+            this.textDllVer.Location = new System.Drawing.Point(440, 341);
             this.textDllVer.Name = "textDllVer";
             this.textDllVer.ReadOnly = true;
             this.textDllVer.Size = new System.Drawing.Size(67, 21);
@@ -196,7 +201,7 @@
             // labelJlink
             // 
             this.labelJlink.AutoSize = true;
-            this.labelJlink.Location = new System.Drawing.Point(228, 373);
+            this.labelJlink.Location = new System.Drawing.Point(255, 373);
             this.labelJlink.Name = "labelJlink";
             this.labelJlink.Size = new System.Drawing.Size(47, 12);
             this.labelJlink.TabIndex = 16;
@@ -204,7 +209,8 @@
             // 
             // textJlinkVer
             // 
-            this.textJlinkVer.Location = new System.Drawing.Point(274, 370);
+            this.textJlinkVer.Enabled = false;
+            this.textJlinkVer.Location = new System.Drawing.Point(308, 370);
             this.textJlinkVer.Name = "textJlinkVer";
             this.textJlinkVer.ReadOnly = true;
             this.textJlinkVer.Size = new System.Drawing.Size(199, 21);
@@ -224,7 +230,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 399);
+            this.ClientSize = new System.Drawing.Size(519, 399);
             this.Controls.Add(this.but_clear);
             this.Controls.Add(this.textJlinkVer);
             this.Controls.Add(this.labelJlink);
@@ -246,7 +252,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "xMCU";
-            this.Text = "xMCU Flash Utility";
+            this.Text = "烧录工具V1.0.0";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
