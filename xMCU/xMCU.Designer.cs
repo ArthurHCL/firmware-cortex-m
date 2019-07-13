@@ -97,7 +97,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "firmware file(*.bin; *.hex)|*.bin;*.hex";
+            this.openFileDialog1.Filter = "firmware file(*.hex)|*.hex";
             // 
             // button_erase
             // 
