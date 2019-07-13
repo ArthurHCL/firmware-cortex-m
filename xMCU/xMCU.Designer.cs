@@ -264,7 +264,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "xMCU";
-            this.Text = "烧录工具V1.0.0";
+            this.Text = "固件烧录工具V1.0.0";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
